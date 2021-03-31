@@ -1,19 +1,4 @@
-class Book {
-    /**Represents a book in the user's library. Attributes hold data related
-     * to such. To be stored in a Library object's books attribute array.*/
-    constructor(title, author, linkToCoverPhoto, pages, 
-        publisher, publicationYear, isbn, language) {
-            this.read = false;
-            this.title = title;
-            this.author = author;
-            this.linkToCoverPhoto = linkToCoverPhoto;
-            this.pages = pages;
-            this.publisher = publisher;
-            this.publicationYear =  publicationYear;
-            this.isbn = isbn;
-            this.language = language;
-    }    
-}
+import Book from './book.js'
 
 class Library {
     /**Represents a user's library. Holds user's Book objects.*/
@@ -26,20 +11,27 @@ class Library {
         this.books.push(book);
     }
 
-    displayBooks() {
+    displayLibrary() {
         /**Displays all books in the user's library.*/
         for (let i = 0; i < this.books.length; i++) {
-            console.log(this.books[i].title, this.books[i].author);
+            this.books[i].display();
         }
     }
 }
 
-library = new Library;
+let library = new Library;
 
-book1 = new Book("catcher in the rye", "j.d. salinger", null, 500);
-book2 = new Book("harry potter 1", "jk rowling", null, 234);
+let book1 = new Book(
+    'Catcher in the Rye', 
+    'J.D. Salinger', 
+    'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398034300l/5107.jpg',
+    '277',
+    'Little, Brown and Company',
+    '1951',
+    '0316769177',
+    'English',
+);
 
 library.addBook(book1);
-library.addBook(book2);
 
-library.displayBooks();
+library.displayLibrary();

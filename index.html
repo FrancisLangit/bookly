@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     
     <!-- JavaScript files. -->
-    <script src="scripts/main.js" async></script>
+    <script src="scripts/main.js" type="module" async></script>
     <script src="scripts/bootstrap.bundle.min.js" async></script>
     
     <title>Bookly</title>
@@ -19,6 +19,24 @@
 
 <body>
     <h1>Bookly</h1>
+
+    <template class="book">
+        <div class="card" style="width: 18rem;">
+            <img src="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" name="title">Catcher in the Rye</h5>
+                <p class="card-text" name="author">by J.D. Salinger</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" name="pages">Pages: 277</li>
+                <li class="list-group-item" name="publisher">Publisher: Little, Brown and Company</li>
+                <li class="list-group-item" name="publicationYear">Publication Year: 1951</li>
+                <li class="list-group-item" name="isbn">ISBN: 0316769177</li>
+                <li class="list-group-item" name="language">Language: English</li>
+            </ul>
+            <div class="card-footer">Read</div>
+        </div>
+    </template>
 </body>
 
 </html>
