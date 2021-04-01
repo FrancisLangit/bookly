@@ -26,7 +26,67 @@ let book2 = new Book(
     'English',
 );
 
+let book3 = new Book(
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/220px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg',
+    'To Kill a Mockingbird', 
+    'Harper Lee', 
+    '281',
+    'J. B. Lippincott & Co.',
+    '1960',
+    '0446310786',
+    'English',
+);
+
+let book4 = new Book(
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/220px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg',
+    'To Kill a Mockingbird', 
+    'Harper Lee', 
+    '281',
+    'J. B. Lippincott & Co.',
+    '1960',
+    '0446310786',
+    'English',
+);
+
+let book5 = new Book(
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/220px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg',
+    'To Kill a Mockingbird', 
+    'Harper Lee', 
+    '281',
+    'J. B. Lippincott & Co.',
+    '1960',
+    '0446310786',
+    'English',
+);
+
+let book6 = new Book(
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/220px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg',
+    'To Kill a Mockingbird', 
+    'Harper Lee', 
+    '281',
+    'J. B. Lippincott & Co.',
+    '1960',
+    '0446310786',
+    'English',
+);
+
+let book7 = new Book(
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/220px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg',
+    'To Kill a Mockingbird', 
+    'Harper Lee', 
+    '281',
+    'J. B. Lippincott & Co.',
+    '1960',
+    '0446310786',
+    'English',
+);
+
 library.addBook(book1);
 library.addBook(book2);
+library.addBook(book3);
+library.addBook(book4);
+library.addBook(book5);
+library.addBook(book6);
+library.addBook(book7);
 
 library.displayLibrary();

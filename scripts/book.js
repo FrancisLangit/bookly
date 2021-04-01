@@ -16,7 +16,7 @@ export default class Book {
 
     createBookCard() {
         /**Grabs .book template from index.html and returns such as a node.*/
-        const bookCardTemplate = document.querySelector('.book');
+        const bookCardTemplate = document.querySelector('#book');
         return document.importNode(bookCardTemplate.content, true);
     }
 
@@ -44,6 +44,6 @@ export default class Book {
          * appends such to the webpage.*/
         const bookCard = this.createBookCard();
         this.fillBookCard(bookCard)
-        document.body.appendChild(bookCard);
+        document.querySelector('#books').appendChild(bookCard);
     }
 }

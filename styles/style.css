@@ -1,1 +1,24 @@
-/* No CSS */
+#books {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 15px 0;
+}
+
+#bookCard {
+  margin: 15px 25px;
+  width: 25rem;
+}
+
+#bookCover {
+  background-color: #f7f7f7;
+  height: 30vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+}
