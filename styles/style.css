@@ -10,12 +10,12 @@
   margin: 15px 0;
 }
 
-#bookCard {
-  margin: 15px 25px;
+#books .card {
+  margin: 15px 20px;
   width: 25rem;
 }
 
-#bookCover {
+#books #bookCover {
   background-color: #f7f7f7;
   height: 30vh;
   -o-object-fit: contain;
