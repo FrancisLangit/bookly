@@ -19,22 +19,22 @@
 
 <body class="d-flex">
     <h1>Bookly</h1>
-
+    
     <template class="book">
-        <div class="card m-5" style="width: 20rem;">
-            <img src="" id="cover" class="card-img-top">
+        <div class="card">
+            <img src="" class="card-img-top" id="bookCover">
             <div class="card-body">
-                <h5 class="card-title" id="title"></h5>
-                <p class="card-text" id="author">by </p>
+                <h5 class="card-title" id="bookTitle"></h5>
+                <p class="card-text" id="bookAuthor"></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="pages">Pages: </li>
-                <li class="list-group-item" id="publisher">Publisher: </li>
-                <li class="list-group-item" id="publicationYear">Publication Year: </li>
-                <li class="list-group-item" id="isbn">ISBN: </li>
-                <li class="list-group-item" id="language">Language: </li>
+                <li class="list-group-item" id="bookPages">Pages: </li>
+                <li class="list-group-item" id="bookPublisher">Publisher: </li>
+                <li class="list-group-item" id="bookPublicationYear">Publication Year: </li>
+                <li class="list-group-item" id="bookIsbn">ISBN: </li>
+                <li class="list-group-item" id="bookLanguage">Language: </li>
             </ul>
-            <div class="card-footer">Read</div>
+            <div class="card-footer" id="bookReadStatus">Read</div>
         </div>
     </template>
 </body>
