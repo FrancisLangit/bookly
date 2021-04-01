@@ -1,0 +1,20 @@
+#books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+#book {
+    &Card{
+        margin: 15px 25px;
+        width: 25rem;
+    }
+
+    &Cover {
+        background-color: #f7f7f7;
+        height: 30vh;
+        object-fit: contain;
+        width: 100%;
+    }
+}

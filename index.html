@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Stylesheets. -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    
+    <!-- JavaScript files. -->
+    <script src="scripts/main.js" type="module" async></script>
+    <script src="scripts/bootstrap.bundle.min.js" async></script>
+    
+    <title>Bookly</title>
+</head>
+
+<body>
+    <!-- Navbar. -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <img src="data/logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                Bookly
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Div holding book display cards. -->
+    <div id="books"></div>
+
+    <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
+    <template id="book">
+        <div class="card" id="bookCard">
+            <img src="" class="card-img-top" id="bookCover">
+            <div class="card-body">
+                <h5 class="card-title" id="bookTitle"></h5>
+                <p class="card-text" id="bookAuthor"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="bookPages">Pages: </li>
+                <li class="list-group-item" id="bookPublisher">Publisher: </li>
+                <li class="list-group-item" id="bookPublicationYear">Publication Year: </li>
+                <li class="list-group-item" id="bookIsbn">ISBN: </li>
+                <li class="list-group-item" id="bookLanguage">Language: </li>
+            </ul>
+            <div class="card-footer" id="bookReadStatus">Read</div>
+        </div>
+    </template>
+</body>
+
+</html>
