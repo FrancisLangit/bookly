@@ -11,13 +11,14 @@ export default class AddBookModal {
         document.querySelector('#inputBookTitle').value = "";
         document.querySelector('#inputBookAuthor').value = "";
         document.querySelector('#inputBookPages').value = "";
+        document.querySelector('#inputBookReadStatus').checked = false;
     }
 
     setUpCancelButton() {
         /**Adds click event listener to modal cancel button that makes it 
          * clear the form before closing the modal.*/
         this.cancelButton = document.querySelector(
-            '#addBookModalCancelButton');        
+            '#addBookModalCancelButton');
         this.cancelButton.addEventListener('click', this.clearForm);
     }
 
@@ -30,7 +31,8 @@ export default class AddBookModal {
             const newBook = new Book(
                 document.querySelector('#inputBookTitle').value,
                 document.querySelector('#inputBookAuthor').value,
-                document.querySelector('#inputBookPages').value
+                document.querySelector('#inputBookPages').value,
+                document.querySelector('#inputBookReadStatus').checked,
             ); 
             newBook.display();
             this.main.library.addBook(newBook);

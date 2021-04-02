@@ -1,17 +1,26 @@
 export default class Book {
     /**Represents a book in the user's library. Properties hold data related
      * to such. To be stored in a Library object's books property array.*/
-    constructor(title, author, pages) {
+    constructor(title, author, pages, read) {
             this.title = title;
             this.author = author;
             this.pages = pages;
-            this.read = false;
+            this.read = read;
     }
 
     createBookCard() {
         /**Grabs .book template from index.html and returns such as a node.*/
         const bookCardTemplate = document.querySelector('#book');
         return document.importNode(bookCardTemplate.content, true);
+    }
+
+    getReadStatus() {
+        /**Returns read status of Book object based on this.read.*/
+        if (this.read) {
+            return "Read";
+        } else {
+            return "Not Read";
+        }
     }
 
     fillBookCard(bookCard) {
@@ -22,6 +31,8 @@ export default class Book {
             `by ${this.author}`);
         bookCard.querySelector('#bookPages').innerHTML = (
             `${this.pages} Pages`);
+        bookCard.querySelector('#bookReadStatus').innerHTML = (
+            this.getReadStatus());
     }
 
     display() {
