@@ -1,57 +1,35 @@
 import Book from './book.js';
 import Library from './library.js';
 
+class AddBookModal {
+    constructor(main) {
+        this.main = main;
+    }
 
-let library = new Library;
+    setUp() {
+        const saveButton = document.querySelector('#addBookModalSaveButton');
+        saveButton.addEventListener('click', () => {
+            const title = document.querySelector('#inputBookTitle').value;
+            const author = document.querySelector('#inputBookAuthor').value;
+            const pages = document.querySelector('#inputBookPages').value;
+            const newBook = new Book(title, author, pages); 
+            newBook.display();
+            this.main.library.addBook(newBook);
+        });
+    }
+}
 
-let book1 = new Book(
-    'Catcher in the Rye', 
-    'J.D. Salinger', 
-    '277',
-);
+class Main {
+    constructor() {
+        this.library = new Library;
+        this.addBookModal = new AddBookModal(this);
+    }
 
-let book2 = new Book(
-    'To Kill a Mockingbird', 
-    'Harper Lee', 
-    '281',
-);
+    setUp() {
+        this.addBookModal.setUp();
+        this.library.display();
+    }
+}
 
-let book3 = new Book(
-    'To Kill a Mockingbird', 
-    'Harper Lee', 
-    '281',
-);
-
-let book4 = new Book(
-    'To Kill a Mockingbird', 
-    'Harper Lee', 
-    '281',
-);
-
-let book5 = new Book(
-    'To Kill a Mockingbird', 
-    'Harper Lee', 
-    '281',
-);
-
-let book6 = new Book(
-    'To Kill a Mockingbird', 
-    'Harper Lee', 
-    '281',
-);
-
-let book7 = new Book(
-    'To Kill a Mockingbird', 
-    'Harper Lee', 
-    '281',
-);
-
-library.addBook(book1);
-library.addBook(book2);
-library.addBook(book3);
-library.addBook(book4);
-library.addBook(book5);
-library.addBook(book6);
-library.addBook(book7);
-
-library.displayLibrary();
+const main = new Main;
+main.setUp();

@@ -9,7 +9,7 @@ export default class Library {
         this.books.push(book);
     }
 
-    displayLibrary() {
+    display() {
         /**Displays all books in the user's library.*/
         for (let i = 0; i < this.books.length; i++) {
             this.books[i].display();
