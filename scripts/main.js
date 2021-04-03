@@ -18,11 +18,28 @@ class Main {
 
 const main = new Main;
 
-let book = new Book(
+let book1 = new Book(
     'Elantris',
     'Brandon Sanderson',
     496,
 );
-main.library.addBook(book);
+
+let book2 = new Book(
+    'Catcher in the Rye',
+    'J.D. Salinger',
+    277,
+);
+
+let book3 = new Book(
+    "Harry Potter and the Sorcerer's Stone",
+    'J.K. Rowling ',
+    345,
+);
+
+main.library.addBook(book1);
+main.library.addBook(book2);
+main.library.addBook(book3);
+
+main.library.removeBook(book2);
 
 main.setUp();

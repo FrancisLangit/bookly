@@ -6,6 +6,7 @@ export default class Book {
             this.author = author;
             this.pages = pages;
             this.read = read;
+            this.id = Math.random().toString(36).substr(2, 9);
     }
 
     createBookCard() {
@@ -23,14 +24,6 @@ export default class Book {
         }
     }
 
-    setUpDeleteButton(deleteButton) {
-        /**Adds click event listener to delete button of card, giving it the 
-         * functionality to delete Book instance from user's library.*/
-        deleteButton.addEventListener('click', () => {
-            console.log(this.title);
-        });
-    }
-
     createDeleteButton(bookCard) {     
         /**Creates a functional delete button that removes Book object from 
          * user's library.*/
@@ -38,7 +31,6 @@ export default class Book {
         deleteButton.type = 'button';
         deleteButton.innerHTML = 'Delete';
         deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
-        this.setUpDeleteButton(deleteButton);
         bookCard.querySelector('.card-body').appendChild(deleteButton);
     }
 
