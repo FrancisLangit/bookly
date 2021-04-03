@@ -54,28 +54,28 @@
                     <h5 class="modal-title" id="addBookModalLabel">Add Book</h5>
                 </div>
                     <div class="modal-body">
-                        <form>
+                        <form name="addBookForm">
                             <div class="mb-3">
                                 <label for="inputBookTitle" class="form-label">Title</label>
-                                <input class="form-control" id="inputBookTitle" placeholder="Ex: Elantris">                                
+                                <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: Elantris">                                
                             </div>
                             <div class="mb-3">
                                 <label for="inputBookAuthor" class="form-label">Author</label>
-                                <input class="form-control" id="inputBookAuthor" placeholder="Ex: Brandon Sanderson">
+                                <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Brandon Sanderson">
                             </div>
                             <div class="mb-3">
                                 <label for="inputBookPages" class="form-label">Pages</label>
-                                <input class="form-control" id="inputBookPages" placeholder="Ex: 496">
+                                <input class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 496">
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="inputBookReadStatus">
                                 <label class="form-check-label" for="inputBookReadStatus">Read</label>
-                              </div>
+                            </div>
                         </form>
                     </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addBookModalCancelButton">Cancel</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="addBookModalSaveButton">Save</button>
+                    <button type="submit" class="btn btn-primary" id="addBookModalSaveButton">Save</button>
                 </div>
             </div>
         </div>
