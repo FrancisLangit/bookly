@@ -8,35 +8,37 @@ export default class AddBookModal {
             document.querySelector('#addBookModal'));
     }
 
-    getInputValues() {
-        /**Returns list of the modal's form input's values.*/
-        return [
-            document.querySelector('#inputBookTitle').value,
-            document.querySelector('#inputBookAuthor').value,
-            document.querySelector('#inputBookPages').value,
-        ];
-    }
-
-    clearForm() {
-        /**Clears out title, author, and pages inputs in modal form.*/
-        const inputValues = this.getInputValues();
-        for (let i = 0; i < getInputValues.length; i++) {
-            inputValues[i] = '';
-        } 
+    resetForm() {
+        /**Resets values of styling of inputs in modal form.*/
+        const inputs = [
+            document.querySelector('#inputBookTitle'),
+            document.querySelector('#inputBookAuthor'),
+            document.querySelector('#inputBookPages'),
+        ]
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].value = ''
+            inputs[i].classList.remove('is-invalid');
+        }
         document.querySelector('#inputBookReadStatus').checked = false;
     }
 
     setUpCancelButton() {
-        /**Adds click event listener to modal cancel button that makes it 
+        /**Adds click event listener to modal cancel button that makes it
          * clear the form before closing the modal.*/
         this.cancelButton = document.querySelector(
             '#addBookModalCancelButton');
-        this.cancelButton.addEventListener('click', this.clearForm);
+        this.cancelButton.addEventListener('click', () => {
+            this.resetForm();
+        });
     }
 
     isInputValid() {
         /**Returns true if none of the form input values are left blank.*/
-        const inputValues = this.getInputValues();
+        const inputValues = [
+            document.querySelector('#inputBookTitle').value,
+            document.querySelector('#inputBookAuthor').value,
+            document.querySelector('#inputBookPages').value,
+        ];
         return (!inputValues.includes(''));
     }
 
@@ -50,18 +52,38 @@ export default class AddBookModal {
         );
     }
 
+    saveBook() {
+        /**Creates and displays a new Book object and adds such to the user's
+         * library.*/
+        const newBook = this.createBookObject(); 
+        newBook.display();
+        this.main.library.addBook(newBook);
+    }
+
+    invalidateForm() {
+        /**Adds .is-invalid class to title, author, and pages input fields.*/
+        const inputs = [
+            document.querySelector('#inputBookTitle'),
+            document.querySelector('#inputBookAuthor'),
+            document.querySelector('#inputBookPages'),
+        ];
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].classList.add('is-invalid');
+        }
+    }
+
     setUpSaveButton() {
-        /**Adds click event listener to modal save button that makes it create
-         * and display a new Book object, add such to the user's library, and 
-         * clears the modal form after closing it.*/
+        /**Adds click event listener to modal save button that makes it 
+         * validate input of user. If such input is valid saves the book 
+         * inputted and closes and clears the modal form.*/
         const saveButton = document.querySelector('#addBookModalSaveButton');
         saveButton.addEventListener('click', () => {
             if (this.isInputValid()) {
-                const newBook = this.createBookObject(); 
-                newBook.display();
-                this.main.library.addBook(newBook);
+                this.saveBook();
                 this.modal.hide();
-                this.clearForm();
+                this.resetForm();
+            } else {
+                this.invalidateForm();
             }
         });
     }
