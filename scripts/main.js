@@ -1,4 +1,5 @@
 import AddBookModal from './addBookModal.js';
+import Book from './book.js';
 import Library from './library.js';
 
 class Main {
@@ -16,4 +17,12 @@ class Main {
 }
 
 const main = new Main;
+
+let book = new Book(
+    'Elantris',
+    'Brandon Sanderson',
+    496,
+);
+main.library.addBook(book);
+
 main.setUp();

@@ -57,17 +57,17 @@
                         <form name="addBookForm">
                             <div class="mb-3">
                                 <label for="inputBookTitle" class="form-label">Title</label>
-                                <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: Elantris">                                
+                                <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: Elantris" maxlength="50">                                
                                 <div class="form-text">What is the title of your book?</div>
                             </div>
                             <div class="mb-3">
                                 <label for="inputBookAuthor" class="form-label">Author</label>
-                                <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Brandon Sanderson">
+                                <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Brandon Sanderson" maxlength="50">
                                 <div class="form-text">Who wrote your book?</div>
                             </div>
                             <div class="mb-3">
                                 <label for="inputBookPages" class="form-label">Pages</label>
-                                <input class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 496">
+                                <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 496" min="1" max="10000">
                                 <div class="form-text">How long is your book in pages?</div>
                             </div>
                             <div class="mb-3 form-check">
@@ -90,7 +90,7 @@
             <div class="card-body">
                 <h5 class="card-title" id="bookTitle"></h5>
                 <p class="card-text" id="bookAuthor"></p>
-                <small class="text-muted" id="bookPages"></small>
+                <p><small class="text-muted" id="bookPages"></small></p>
             </div>
             <div class="card-footer" id="bookReadStatus"></div>
         </div>
