@@ -10,7 +10,7 @@ export default class Book {
 
     createBookCard() {
         /**Grabs .book template from index.html and returns such as a node.*/
-        const bookCardTemplate = document.querySelector('#book');
+        const bookCardTemplate = document.querySelector('#bookCard');
         return document.importNode(bookCardTemplate.content, true);
     }
 
@@ -23,6 +23,25 @@ export default class Book {
         }
     }
 
+    setUpDeleteButton(deleteButton) {
+        /**Adds click event listener to delete button of card, giving it the 
+         * functionality to delete Book instance from user's library.*/
+        deleteButton.addEventListener('click', () => {
+            console.log(this.title);
+        });
+    }
+
+    createDeleteButton(bookCard) {     
+        /**Creates a functional delete button that removes Book object from 
+         * user's library.*/
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.innerHTML = 'Delete';
+        deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
+        this.setUpDeleteButton(deleteButton);
+        bookCard.querySelector('.card-body').appendChild(deleteButton);
+    }
+
     fillBookCard(bookCard) {
         /**Gets index.html .book template as argument and fills such up with 
          * the Book object's data.*/
@@ -33,6 +52,7 @@ export default class Book {
             `${this.pages} Pages`);
         bookCard.querySelector('#bookReadStatus').innerHTML = (
             this.getReadStatus());
+        this.createDeleteButton(bookCard);
     }
 
     display() {
