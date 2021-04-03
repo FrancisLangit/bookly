@@ -8,13 +8,19 @@ export default class AddBookModal {
             document.querySelector('#addBookModal'));
     }
 
-    resetForm() {
-        /**Resets values of styling of inputs in modal form.*/
-        const inputs = [
+    getInputFields() {
+        /**Returns array containing nodes of modal's title, author, and pages 
+         * input fields.*/
+        return [
             document.querySelector('#inputBookTitle'),
             document.querySelector('#inputBookAuthor'),
             document.querySelector('#inputBookPages'),
-        ]
+        ];
+    }
+
+    resetForm() {
+        /**Resets values of styling of inputs in modal form.*/
+        const inputs = this.getInputFields();
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].value = ''
             inputs[i].classList.remove('is-invalid');
@@ -33,13 +39,16 @@ export default class AddBookModal {
     }
 
     isInputValid() {
-        /**Returns true if none of the form input values are left blank.*/
-        const inputValues = [
-            document.querySelector('#inputBookTitle').value,
-            document.querySelector('#inputBookAuthor').value,
-            document.querySelector('#inputBookPages').value,
-        ];
-        return (!inputValues.includes(''));
+        /**Returns true if none of the form input values are left blank. 
+         * Otherwise, returns false.*/
+        const inputs = this.getInputFields();
+        let isValid = true;
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value === '') {
+                isValid = false;
+            }
+        }
+        return isValid;
     }
 
     createBookObject() {
@@ -61,14 +70,14 @@ export default class AddBookModal {
     }
 
     invalidateForm() {
-        /**Adds .is-invalid class to title, author, and pages input fields.*/
-        const inputs = [
-            document.querySelector('#inputBookTitle'),
-            document.querySelector('#inputBookAuthor'),
-            document.querySelector('#inputBookPages'),
-        ];
+        /**Adds .is-invalid class to input fields left blank by user.*/
+        const inputs = this.getInputFields();
         for (let i = 0; i < inputs.length; i++) {
-            inputs[i].classList.add('is-invalid');
+            if (inputs[i].value === '') {
+                inputs[i].classList.add('is-invalid');
+            } else {
+                inputs[i].classList.remove('is-invalid');
+            }
         }
     }
 
