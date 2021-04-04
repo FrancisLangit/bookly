@@ -5,16 +5,16 @@ export default class Book {
     /**Represents a book in the user's library. Properties hold data related
      * to such. To be stored in a Library object's books property array.*/
     constructor(main, title, author, pages, read) {
-            this.main = main;
-            this.title = title;
-            this.author = author;
-            this.pages = pages;
-            this.read = read;
-            this.id = Math.random().toString(36).substr(2, 9);
-            
-            this.card = this.createBookCard();            
-            this.deleteButton = new BookDeleteButton(main, this);
-            this.markButton = new BookMarkButton(main, this);
+        this.main = main;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = Math.random().toString(36).substr(2, 9);
+        
+        this.card = this.createBookCard();
+        this.deleteButton = new BookDeleteButton(this.main, this);
+        this.markButton = new BookMarkButton(this.main, this);
     }
 
     createBookCard() {
@@ -46,9 +46,9 @@ export default class Book {
             `${this.pages} Pages`);
 
         this.card.querySelector('.card-body').appendChild(
-            this.markButton.button);
-        this.card.querySelector('.card-body').appendChild(
             this.deleteButton.button);
+        this.card.querySelector('.card-body').appendChild(
+            this.markButton.button);
 
         this.card.querySelector('.card-footer').appendChild(
             this.getReadStatus());

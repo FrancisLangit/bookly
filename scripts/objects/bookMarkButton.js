@@ -5,22 +5,46 @@ export default class BookMarkButton extends bookButton {
         /**Represents Delete button on Book cards that removes respective 
          * parent's from user's library.*/
         super(main, parentBook);
-        this.button.innerHTML = 'Toggle Status';
-        this.button.classList.add('btn-outline-secondary');
         this.setUp();
+    }
+
+    getParentBookCardFooter() {
+        /**Returns the footer of the button's containing Bootstrap card.*/
+        const parentBookContainer = document.getElementById(
+            this.parentBook.id);
+        return parentBookContainer.querySelector('.card-footer');
+    }
+
+    toggleParentBookStatus() {
+        /**Toggles the read status of the button's parentBook object and HTML
+         * within its respective card's footer.*/
+        this.parentBook.read = !this.parentBook.read;
+        let parentBookCardFooter = this.getParentBookCardFooter();
+        parentBookCardFooter.innerHTML = '';
+        parentBookCardFooter.appendChild(this.parentBook.getReadStatus());
+    }
+
+    setStyle() {
+        /**Sets the style of the button based on its parent book's read 
+         * property.*/
+        if (this.parentBook.read) {
+            this.button.classList.add('btn-secondary');
+            this.button.classList.remove('btn-outline-secondary');
+            this.button.innerHTML = 'Mark As Unread';
+        } else {
+            this.button.classList.add('btn-outline-secondary');
+            this.button.classList.remove('btn-secondary');
+            this.button.innerHTML = 'Mark As Read';
+        }
     }
 
     setUp() {
         /**Adds click event listener to mark button. Makes it toggle the read
          * status of the book object and its card.*/
+        this.setStyle();
         this.button.addEventListener('click', () => {
-            this.parentBook.read = !this.parentBook.read;
-            const bookCardContainer = document.getElementById(
-                this.parentBook.id);
-            const bookCardFooter = bookCardContainer.querySelector(
-                '.card-footer');
-            bookCardFooter.innerHTML = '';
-            bookCardFooter.appendChild(this.parentBook.getReadStatus());
+            this.toggleParentBookStatus();
+            this.setStyle();
         });
     }
 }
