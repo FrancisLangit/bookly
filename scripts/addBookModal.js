@@ -54,6 +54,7 @@ export default class AddBookModal {
     createBookObject() {
         /**Creates a new Book object based on values of modal form inputs.*/
         return new Book(
+            this.main,
             document.querySelector('#inputBookTitle').value,
             document.querySelector('#inputBookAuthor').value,
             document.querySelector('#inputBookPages').value,

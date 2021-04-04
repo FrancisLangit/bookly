@@ -1,7 +1,8 @@
 export default class Book {
     /**Represents a book in the user's library. Properties hold data related
      * to such. To be stored in a Library object's books property array.*/
-    constructor(title, author, pages, read) {
+    constructor(main, title, author, pages, read) {
+            this.main = main;
             this.title = title;
             this.author = author;
             this.pages = pages;
@@ -12,7 +13,8 @@ export default class Book {
     createBookCard() {
         /**Grabs .book template from index.html and returns such as a node.*/
         const bookCardTemplate = document.querySelector('#bookCard');
-        return document.importNode(bookCardTemplate.content, true);
+        const newBookCard = bookCardTemplate.content;
+        return document.importNode(newBookCard, true);
     }
 
     getReadStatus() {
@@ -24,6 +26,15 @@ export default class Book {
         }
     }
 
+    setUpDeleteButton(deleteButton) {
+        /**Adds click event listener to delete button of card, giving it the 
+         * functionality to delete Book instance from user's library.*/
+        deleteButton.addEventListener('click', () => {
+            this.main.library.removeBook(this);
+            document.getElementById(this.id).remove()
+        });
+    }
+
     createDeleteButton(bookCard) {     
         /**Creates a functional delete button that removes Book object from 
          * user's library.*/
@@ -31,6 +42,7 @@ export default class Book {
         deleteButton.type = 'button';
         deleteButton.innerHTML = 'Delete';
         deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
+        this.setUpDeleteButton(deleteButton);
         bookCard.querySelector('.card-body').appendChild(deleteButton);
     }
 
@@ -48,10 +60,15 @@ export default class Book {
     }
 
     display() {
-        /**Creates a book card and fills it up with Book object's data. Then 
-         * appends such to the webpage.*/
+        /**Creates container div with id set to Book object's id. Then fills
+         * such up with a Bootstrap card containing data related to Book 
+         * object.*/
+        const bookCardContainer = document.createElement('div');
+        bookCardContainer.id = this.id;
+        document.querySelector('#books').appendChild(bookCardContainer);
+
         const bookCard = this.createBookCard();
-        this.fillBookCard(bookCard)
-        document.querySelector('#books').appendChild(bookCard);
+        this.fillBookCard(bookCard);
+        bookCardContainer.appendChild(bookCard)
     }
 }
