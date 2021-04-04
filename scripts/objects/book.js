@@ -31,18 +31,10 @@ export default class Book {
         if (this.read) {
             newStatus.innerHTML = 'Read';
         } else {
-            newStatus.classList.add('text-muted');
             newStatus.innerHTML = 'Not Read';
+            newStatus.classList.add('text-muted');
         }
         return newStatus;
-    }
-
-    createButton() {
-        /**Creates and returns a Bootstrap styled button element.*/
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.classList.add('btn', 'me-2');
-        return button;
     }
 
     fillBookCard() {

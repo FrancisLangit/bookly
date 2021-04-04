@@ -1,13 +1,12 @@
-export default class BookMarkButton {
+import bookButton from './bookButton.js';
+
+export default class BookMarkButton extends bookButton {
     constructor(main, parentBook) {
         /**Represents Delete button on Book cards that removes respective 
          * parent's from user's library.*/
-        this.main = main;
-        this.parentBook = parentBook;
-
-        this.button = this.parentBook.createButton(); 
+        super(main, parentBook);
         this.button.innerHTML = 'Toggle Status';
-        this.button.classList.add('btn-outline-secondary', 'btn-sm');
+        this.button.classList.add('btn-outline-secondary');
         this.setUp();
     }
 
