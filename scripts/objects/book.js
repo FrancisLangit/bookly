@@ -1,3 +1,6 @@
+import BookDeleteButton from './bookDeleteButton.js';
+import BookMarkButton from './bookMarkButton.js';
+
 export default class Book {
     /**Represents a book in the user's library. Properties hold data related
      * to such. To be stored in a Library object's books property array.*/
@@ -8,7 +11,10 @@ export default class Book {
             this.pages = pages;
             this.read = read;
             this.id = Math.random().toString(36).substr(2, 9);
-            this.card = this.createBookCard();
+            
+            this.card = this.createBookCard();            
+            this.deleteButton = new BookDeleteButton(main, this);
+            this.markButton = new BookMarkButton(main, this);
     }
 
     createBookCard() {
@@ -39,60 +45,21 @@ export default class Book {
         return button;
     }
 
-    setUpMarkButton(markButton) {
-        /**Adds click event listener to mark button. Makes it toggle the read
-         * status of the book object and its card.*/
-        markButton.addEventListener('click', () => {
-            this.read = !this.read;
-            const bookCardContainer = document.getElementById(this.id);
-            const bookCardFooter = bookCardContainer.querySelector(
-                '.card-footer');
-            bookCardFooter.innerHTML = '';
-            bookCardFooter.appendChild(this.getReadStatus());
-        });
-    }
-
-    createMarkButton() {
-        /**Creates a toggle status button that toggles read status of Book
-         * object and its card.*/
-        const markButton = this.createButton();
-        markButton.innerHTML = 'Toggle Status';
-        markButton.classList.add('btn-outline-secondary', 'btn-sm');
-        this.setUpMarkButton(markButton);
-        this.card.querySelector('.card-body').appendChild(markButton);
-    }
-
-    setUpDeleteButton(deleteButton) {
-        /**Adds click event listener to delete button of card, giving it the 
-         * functionality to delete Book instance from user's library.*/
-        deleteButton.addEventListener('click', () => {
-            this.main.library.removeBook(this);
-            document.getElementById(this.id).remove()
-        });
-    }
-
-    createDeleteButton() {     
-        /**Creates a functional delete button that removes Book object from 
-         * user's library.*/
-        const deleteButton = this.createButton(); 
-        deleteButton.innerHTML = 'Delete';
-        deleteButton.classList.add('btn-outline-danger', 'btn-sm');
-        this.setUpDeleteButton(deleteButton);
-        this.card.querySelector('.card-body').appendChild(deleteButton);
-    }
-
     fillBookCard() {
-        /**Gets index.html .book template as argument and fills such up with 
-         * the Book object's data.*/
+        /**Fills up Book's card with it's data, buttons, and read status.*/
         this.card.querySelector('#bookTitle').innerHTML = (this.title);
         this.card.querySelector('#bookAuthor').innerHTML = (
             `by ${this.author}`);
         this.card.querySelector('#bookPages').innerHTML = (
             `${this.pages} Pages`);
+
+        this.card.querySelector('.card-body').appendChild(
+            this.markButton.button);
+        this.card.querySelector('.card-body').appendChild(
+            this.deleteButton.button);
+
         this.card.querySelector('.card-footer').appendChild(
             this.getReadStatus());
-        this.createMarkButton();
-        this.createDeleteButton();
     }
 
     display() {
