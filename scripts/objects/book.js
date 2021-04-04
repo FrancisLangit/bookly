@@ -8,6 +8,7 @@ export default class Book {
             this.pages = pages;
             this.read = read;
             this.id = Math.random().toString(36).substr(2, 9);
+            this.card = this.createBookCard();
     }
 
     createBookCard() {
@@ -17,10 +18,10 @@ export default class Book {
         return document.importNode(newBookCard, true);
     }
 
-    setReadStatus(bookCard) {
+    setReadStatus() {
         /**Returns sets footer of Book card based on object's this.read 
          * property.*/
-        const bookCardFooter = bookCard.querySelector('.card-footer');
+        const bookCardFooter = this.card.querySelector('.card-footer');
         if (this.read) {
             bookCardFooter.innerHTML = 'Read';
         } else {
@@ -38,7 +39,7 @@ export default class Book {
         });
     }
 
-    createDeleteButton(bookCard) {     
+    createDeleteButton() {     
         /**Creates a functional delete button that removes Book object from 
          * user's library.*/
         const deleteButton = document.createElement('button');
@@ -46,31 +47,28 @@ export default class Book {
         deleteButton.innerHTML = 'Delete';
         deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
         this.setUpDeleteButton(deleteButton);
-        bookCard.querySelector('.card-body').appendChild(deleteButton);
+        this.card.querySelector('.card-body').appendChild(deleteButton);
     }
 
-    fillBookCard(bookCard) {
+    fillBookCard() {
         /**Gets index.html .book template as argument and fills such up with 
          * the Book object's data.*/
-        bookCard.querySelector('#bookTitle').innerHTML = (this.title);
-        bookCard.querySelector('#bookAuthor').innerHTML = (
+        this.card.querySelector('#bookTitle').innerHTML = (this.title);
+        this.card.querySelector('#bookAuthor').innerHTML = (
             `by ${this.author}`);
-        bookCard.querySelector('#bookPages').innerHTML = (
+        this.card.querySelector('#bookPages').innerHTML = (
             `${this.pages} Pages`);
-        this.setReadStatus(bookCard);
-        this.createDeleteButton(bookCard);
+        this.setReadStatus(this.card);
+        this.createDeleteButton(this.card);
     }
 
     display() {
         /**Creates container div with id set to Book object's id. Then fills
-         * such up with a Bootstrap card containing data related to Book 
-         * object.*/
+         * such up with a Bootstrap card containing data related to object.*/
         const bookCardContainer = document.createElement('div');
         bookCardContainer.id = this.id;
         document.querySelector('#books').appendChild(bookCardContainer);
-
-        const bookCard = this.createBookCard();
-        this.fillBookCard(bookCard);
-        bookCardContainer.appendChild(bookCard)
+        this.fillBookCard();
+        bookCardContainer.appendChild(this.card)
     }
 }

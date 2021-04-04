@@ -1,6 +1,6 @@
-import AddBookModal from './addBookModal.js';
-import Book from './book.js';
-import Library from './library.js';
+import AddBookModal from './objects/addBookModal.js';
+import Book from './objects/book.js';
+import Library from './objects/library.js';
 
 class Main {
     /**Holds logic of the website's JavaScript together.*/
