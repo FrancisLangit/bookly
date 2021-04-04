@@ -23,6 +23,7 @@ let book1 = new Book(
     'Elantris',
     'Brandon Sanderson',
     496,
+    true,
 );
 
 let book2 = new Book(
@@ -42,7 +43,5 @@ let book3 = new Book(
 main.library.addBook(book1);
 main.library.addBook(book2);
 main.library.addBook(book3);
-
-main.library.removeBook(book2);
 
 main.setUp();

@@ -17,12 +17,15 @@ export default class Book {
         return document.importNode(newBookCard, true);
     }
 
-    getReadStatus() {
-        /**Returns read status of Book object based on this.read.*/
+    setReadStatus(bookCard) {
+        /**Returns sets footer of Book card based on object's this.read 
+         * property.*/
+        const bookCardFooter = bookCard.querySelector('.card-footer');
         if (this.read) {
-            return "Read";
+            bookCardFooter.innerHTML = 'Read';
         } else {
-            return "Not Read";
+            bookCardFooter.classList.add('text-muted');
+            bookCardFooter.innerHTML = 'Not Read';
         }
     }
 
@@ -54,8 +57,7 @@ export default class Book {
             `by ${this.author}`);
         bookCard.querySelector('#bookPages').innerHTML = (
             `${this.pages} Pages`);
-        bookCard.querySelector('#bookReadStatus').innerHTML = (
-            this.getReadStatus());
+        this.setReadStatus(bookCard);
         this.createDeleteButton(bookCard);
     }
 
