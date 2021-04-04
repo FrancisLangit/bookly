@@ -18,16 +18,48 @@ export default class Book {
         return document.importNode(newBookCard, true);
     }
 
-    setReadStatus() {
-        /**Returns sets footer of Book card based on object's this.read 
-         * property.*/
-        const bookCardFooter = this.card.querySelector('.card-footer');
+    getReadStatus() {
+        /**Returns span with content and style dependent on object's 
+         * this.read property.*/
+        let newStatus = document.createElement('span');
         if (this.read) {
-            bookCardFooter.innerHTML = 'Read';
+            newStatus.innerHTML = 'Read';
         } else {
-            bookCardFooter.classList.add('text-muted');
-            bookCardFooter.innerHTML = 'Not Read';
+            newStatus.classList.add('text-muted');
+            newStatus.innerHTML = 'Not Read';
         }
+        return newStatus;
+    }
+
+    createButton() {
+        /**Creates and returns a Bootstrap styled button element.*/
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.classList.add('btn', 'me-2');
+        return button;
+    }
+
+    setUpMarkButton(markButton) {
+        /**Adds click event listener to mark button. Makes it toggle the read
+         * status of the book object and its card.*/
+        markButton.addEventListener('click', () => {
+            this.read = !this.read;
+            const bookCardContainer = document.getElementById(this.id);
+            const bookCardFooter = bookCardContainer.querySelector(
+                '.card-footer');
+            bookCardFooter.innerHTML = '';
+            bookCardFooter.appendChild(this.getReadStatus());
+        });
+    }
+
+    createMarkButton() {
+        /**Creates a toggle status button that toggles read status of Book
+         * object and its card.*/
+        const markButton = this.createButton();
+        markButton.innerHTML = 'Toggle Status';
+        markButton.classList.add('btn-outline-secondary', 'btn-sm');
+        this.setUpMarkButton(markButton);
+        this.card.querySelector('.card-body').appendChild(markButton);
     }
 
     setUpDeleteButton(deleteButton) {
@@ -42,10 +74,9 @@ export default class Book {
     createDeleteButton() {     
         /**Creates a functional delete button that removes Book object from 
          * user's library.*/
-        const deleteButton = document.createElement('button');
-        deleteButton.type = 'button';
+        const deleteButton = this.createButton(); 
         deleteButton.innerHTML = 'Delete';
-        deleteButton.classList.add('btn', 'btn-outline-danger', 'btn-sm');
+        deleteButton.classList.add('btn-outline-danger', 'btn-sm');
         this.setUpDeleteButton(deleteButton);
         this.card.querySelector('.card-body').appendChild(deleteButton);
     }
@@ -58,8 +89,10 @@ export default class Book {
             `by ${this.author}`);
         this.card.querySelector('#bookPages').innerHTML = (
             `${this.pages} Pages`);
-        this.setReadStatus(this.card);
-        this.createDeleteButton(this.card);
+        this.card.querySelector('.card-footer').appendChild(
+            this.getReadStatus());
+        this.createMarkButton();
+        this.createDeleteButton();
     }
 
     display() {
