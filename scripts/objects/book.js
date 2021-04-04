@@ -3,7 +3,8 @@ import BookMarkButton from './bookMarkButton.js';
 
 export default class Book {
     /**Represents a book in the user's library. Properties hold data related
-     * to such. To be stored in a Library object's books property array.*/
+     * to such as well as objects related to its card's interface. To be 
+     * stored in a Library object's books property array.*/
     constructor(main, title, author, pages, read) {
         this.main = main;
         this.title = title;
