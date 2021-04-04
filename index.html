@@ -29,24 +29,70 @@
     </nav>
     
     <!-- Div holding book display cards. -->
-    <div id="books"></div>
-
+    <div id="books">
+        <!-- "Add Book" card. -->
+        <div class="card">
+            <div class="card-header">
+                Add Book
+            </div>
+            <!-- Card icon. -->
+            <div class="card-body d-flex justify-content-center align-items-center">
+                <a data-bs-toggle="modal" data-bs-target="#addBookModal">                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="grey" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">
+                        <path d="M2.5 0c-.166 0-.33.016-.487.048l.194.98A1.51 1.51 0 0 1 2.5 1h.458V0H2.5zm2.292 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zm1.833 0h-.916v1h.916V0zm1.834 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zM13.5 0h-.458v1h.458c.1 0 .199.01.293.029l.194-.981A2.51 2.51 0 0 0 13.5 0zm2.079 1.11a2.511 2.511 0 0 0-.69-.689l-.556.831c.164.11.305.251.415.415l.83-.556zM1.11.421a2.511 2.511 0 0 0-.689.69l.831.556c.11-.164.251-.305.415-.415L1.11.422zM16 2.5c0-.166-.016-.33-.048-.487l-.98.194c.018.094.028.192.028.293v.458h1V2.5zM.048 2.013A2.51 2.51 0 0 0 0 2.5v.458h1V2.5c0-.1.01-.199.029-.293l-.981-.194zM0 3.875v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 5.708v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 7.542v.916h1v-.916H0zm15 .916h1v-.916h-1v.916zM0 9.375v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .916v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .917v.458c0 .166.016.33.048.487l.98-.194A1.51 1.51 0 0 1 1 13.5v-.458H0zm16 .458v-.458h-1v.458c0 .1-.01.199-.029.293l.981.194c.032-.158.048-.32.048-.487zM.421 14.89c.183.272.417.506.69.689l.556-.831a1.51 1.51 0 0 1-.415-.415l-.83.556zm14.469.689c.272-.183.506-.417.689-.69l-.831-.556c-.11.164-.251.305-.415.415l.556.83zm-12.877.373c.158.032.32.048.487.048h.458v-1H2.5c-.1 0-.199-.01-.293-.029l-.194.981zM13.5 16c.166 0 .33-.016.487-.048l-.194-.98A1.51 1.51 0 0 1 13.5 15h-.458v1h.458zm-9.625 0h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zm1.834-1v1h.916v-1h-.916zm1.833 1h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal where user fills out form to add new book to library. -->
+    <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addBookModalLabel">Add Book</h5>
+                </div>
+                    <div class="modal-body">
+                        <form name="addBookForm">
+                            <div class="mb-3">
+                                <label for="inputBookTitle" class="form-label">Title</label>
+                                <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: Elantris" maxlength="50">                                
+                                <div class="form-text">What is the title of your book?</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputBookAuthor" class="form-label">Author</label>
+                                <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Brandon Sanderson" maxlength="50">
+                                <div class="form-text">Who wrote your book?</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputBookPages" class="form-label">Pages</label>
+                                <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 496" min="1" max="10000">
+                                <div class="form-text">How long is your book in pages?</div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="inputBookReadStatus">
+                                <label class="form-check-label" for="inputBookReadStatus">Read</label>
+                            </div>
+                        </form>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addBookModalCancelButton">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="addBookModalSaveButton">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
     <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
-    <template id="book">
-        <div class="card" id="bookCard">
-            <img src="" class="card-img-top" id="bookCover">
+    <template id="bookCard">
+        <div class="card" id="">
             <div class="card-body">
                 <h5 class="card-title" id="bookTitle"></h5>
                 <p class="card-text" id="bookAuthor"></p>
+                <p><small class="text-muted" id="bookPages"></small></p>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="bookPages">Pages: </li>
-                <li class="list-group-item" id="bookPublisher">Publisher: </li>
-                <li class="list-group-item" id="bookPublicationYear">Publication Year: </li>
-                <li class="list-group-item" id="bookIsbn">ISBN: </li>
-                <li class="list-group-item" id="bookLanguage">Language: </li>
-            </ul>
-            <div class="card-footer" id="bookReadStatus">Read</div>
+            <div class="card-footer"></div>
         </div>
     </template>
 </body>
