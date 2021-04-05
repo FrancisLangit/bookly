@@ -5,6 +5,7 @@ export default class BookMarkButton extends bookButton {
         /**Represents Delete button on Book cards that removes respective 
          * parent's from user's library.*/
         super(main, parentBook);
+        this.button.innerHTML = 'Read';
         this.setUp();
     }
 
@@ -30,11 +31,9 @@ export default class BookMarkButton extends bookButton {
         if (this.parentBook.read) {
             this.button.classList.add('btn-secondary');
             this.button.classList.remove('btn-outline-secondary');
-            this.button.innerHTML = 'Mark As Unread';
         } else {
             this.button.classList.add('btn-outline-secondary');
             this.button.classList.remove('btn-secondary');
-            this.button.innerHTML = 'Mark As Read';
         }
     }
 

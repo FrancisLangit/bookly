@@ -20,13 +20,13 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   #books .card {
     width: 500px;
   }
 }
 
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 550px) {
   #books .card {
     width: 300px;
   }
