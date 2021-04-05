@@ -1,32 +1,37 @@
 // Variables
-$breakpoint-phone: 481px;
-$breakpoint-tablet: 768px;
+    $breakpoint-tablet: 768px;
+    $breakpoint-phone: 481px;
 
 // IDs
-#books {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 15px 0;
-    
-    .card{
-        margin: 15px 10px;
+    #books {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 15px 0;
+        
+        .card{
+            margin: 15px 10px;
+        }
     }
-}
+
+    #pageLogo {
+        margin-top: 25px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
 
 // Media Queries
-@media only screen and (max-width: $breakpoint-phone) {
-    #books {
-        .card {
-            width: 300px;
+    @media only screen and (max-width: $breakpoint-tablet) {
+        #books {
+            .card {
+                width: 500px;
+            }
         }
     }
-}
-
-@media only screen and (max-width: $breakpoint-tablet) {
-    #books {
-        .card {
-            width: 500px;
+    @media only screen and (max-width: $breakpoint-phone) {
+        #books {
+            .card {
+                width: 300px;
+            }
         }
     }
-}

@@ -14,14 +14,20 @@
   margin: 15px 10px;
 }
 
-@media only screen and (max-width: 481px) {
-  #books .card {
-    width: 300px;
-  }
+#pageLogo {
+  margin-top: 25px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
   #books .card {
     width: 500px;
+  }
+}
+
+@media only screen and (max-width: 481px) {
+  #books .card {
+    width: 300px;
   }
 }
