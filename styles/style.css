@@ -14,6 +14,10 @@
   margin: 15px 10px;
 }
 
+#books #addBookCard {
+  width: 200px;
+}
+
 #pageLogo {
   margin-top: 25px;
   margin-bottom: 50px;
@@ -22,12 +26,12 @@
 
 @media only screen and (max-width: 800px) {
   #books .card {
-    width: 500px;
+    width: 500px !important;
   }
 }
 
 @media only screen and (max-width: 550px) {
   #books .card {
-    width: 300px;
+    width: 300px !important;
   }
 }
