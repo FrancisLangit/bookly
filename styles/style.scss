@@ -1,3 +1,8 @@
+// Variables
+$breakpoint-phone: 481px;
+$breakpoint-tablet: 768px;
+
+// IDs
 #books {
     display: flex;
     flex-wrap: wrap;
@@ -5,16 +10,23 @@
     margin: 15px 0;
     
     .card{
-        margin: 15px 20px;
-        width: 25rem;
+        margin: 15px 10px;
     }
+}
 
-    #book {
-        &Cover {
-            background-color: #f7f7f7;
-            height: 30vh;
-            object-fit: contain;
-            width: 100%;
+// Media Queries
+@media only screen and (max-width: $breakpoint-phone) {
+    #books {
+        .card {
+            width: 300px;
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+    #books {
+        .card {
+            width: 500px;
         }
     }
 }

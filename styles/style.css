@@ -11,14 +11,17 @@
 }
 
 #books .card {
-  margin: 15px 20px;
-  width: 25rem;
+  margin: 15px 10px;
 }
 
-#books #bookCover {
-  background-color: #f7f7f7;
-  height: 30vh;
-  -o-object-fit: contain;
-     object-fit: contain;
-  width: 100%;
+@media only screen and (max-width: 481px) {
+  #books .card {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #books .card {
+    width: 500px;
+  }
 }
