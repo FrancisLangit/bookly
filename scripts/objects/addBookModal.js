@@ -98,9 +98,19 @@ export default class AddBookModal {
         });
     }
 
+    setUpAddBookCard() {
+        /**Adds event listener to #addBookCardBody div. When clicked, it 
+         * opens the modal.*/
+        const addBookCardBody = document.querySelector('#addBookCardBody');
+        addBookCardBody.addEventListener('click', () => {
+            this.modal.show();
+        });
+    }
+
     setUp() {
         /**Sets up all the functionalities of the modal.*/
         this.setUpCancelButton();
         this.setUpSaveButton();
+        this.setUpAddBookCard();
     }
 }
