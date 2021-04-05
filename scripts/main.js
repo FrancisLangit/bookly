@@ -45,3 +45,5 @@ main.library.addBook(book2);
 main.library.addBook(book3);
 
 main.setUp();
+
+console.log(firebase);

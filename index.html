@@ -2,18 +2,42 @@
 <html lang="en">
 
 <head>
-    <!-- Meta tags. -->
+    <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Stylesheets. -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     
-    <!-- JavaScript files. -->
+    <!-- JavaScript Files -->
     <script src="scripts/main.js" type="module" async></script>
     <script src="scripts/bootstrap.bundle.min.js" async></script>
     
+    <!-- Firebase -->
+        <!-- Core SDK -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script> 
+        <!-- Authentication SDK -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+        <!-- Cloud Firestore SDK -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+        <script>
+            // Firebase Configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDPGDdCMinfESGHpjcfWappSL7TUJvfLao",
+                authDomain: "bookly-ce045.firebaseapp.com",
+                projectId: "bookly-ce045",
+                storageBucket: "bookly-ce045.appspot.com",
+                messagingSenderId: "57925089846",
+                appId: "1:57925089846:web:291b6798e27c49a1563697",
+                measurementId: "G-WFSYPHQBDX"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+
     <title>Bookly</title>
 </head>
 
