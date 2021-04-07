@@ -54,19 +54,30 @@
         <h5 class="text-muted" id="authStateDisplay">Signed out.</h1> 
         
         <div id="headerSignedOut">
-            <button type="button" class="btn btn-outline-secondary btn-sm me-2" id="signInButton">Sign In</button>
+            <button type="button" class="btn btn-outline-dark btn-sm me-2" id="signInButton">Sign In</button>
         </div>
         
         <div id="headerSignedIn" hidden="true">
-            <button type="button" class="btn btn-outline-secondary btn-sm me-2" id="addBookButton">
+            <button type="button" class="btn btn-outline-dark btn-sm me-2" id="addBookButton">
                 Add Book
             </button>
-            <button type="button" class="btn btn-outline-secondary btn-sm me-2" id="signOutButton">Sign Out</button>
+            <button type="button" class="btn btn-danger btn-sm me-2" id="signOutButton">Sign Out</button>
         </div>
     </div>
-    
+
+    <hr id="divider" />
+
     <!-- Div holding book display cards. -->
     <div id="books"></div>
+
+    <div id="emptyLibraryText" hidden='true'>
+        <div id="emptyLibraryTextHeader">
+            Your library is empty!
+        </div>
+        <div id="emptyLibraryTextSubheader">
+            Click on the "Add Book" button above to save a new book.
+        </div>
+    </div>
     
     <!-- Modal where user fills out form to add new book to library. -->
     <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">

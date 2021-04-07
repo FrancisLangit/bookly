@@ -26,8 +26,26 @@
   margin: 15px 10px;
 }
 
-#books #addBookCard {
-  width: 200px;
+#divider {
+  margin: 35px auto 25px auto;
+  width: 75%;
+}
+
+#emptyLibraryText {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 75%;
+}
+
+#emptyLibraryTextHeader {
+  white-space: nowrap;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#emptyLibraryTextSubheader {
+  font-size: 18px;
+  color: grey;
 }
 
 @media only screen and (max-width: 800px) {
