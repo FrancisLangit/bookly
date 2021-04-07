@@ -10,10 +10,6 @@
   margin: 20px auto;
 }
 
-#header button {
-  margin-right: 10px;
-}
-
 #books {
   display: -webkit-box;
   display: -ms-flexbox;
