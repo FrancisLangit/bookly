@@ -38,13 +38,12 @@
 }
 
 #emptyLibraryTextHeader {
-  white-space: nowrap;
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 600;
 }
 
 #emptyLibraryTextSubheader {
-  font-size: 18px;
+  font-size: 1em;
   color: grey;
 }
 
