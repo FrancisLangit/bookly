@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     
     <!-- JavaScript Files -->
-    <script src="scripts/main.js" type="module" async></script>
+    <script src="scripts/main.js" type="module" defer></script>
     <script src="scripts/bootstrap.bundle.min.js" async></script>
     
     <!-- Firebase -->
@@ -42,10 +42,22 @@
 </head>
 
 <body>
-    <!-- Logo -->
-    <div id="pageLogo">
-        <img src="data/logo.svg" alt="" width="100" height="100" class="d-inline-block align-text-top">
-        <h1 class='display-4'>Bookly</h1>
+    <div id="header">        
+        <div id="headerLogo">
+            <img src="data/logo.svg" alt="" width="100" height="100" class="d-inline-block align-text-top">
+            <h1 class='display-4'>Bookly</h1>
+        </div>
+
+        <h5 class="text-muted" id="headerSubText">Signed out.</h1> 
+        
+        <div id="headerSignedOut">
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="signInButton">Sign In</button>
+        </div>
+        
+        <div id="headerSignedIn">
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="addBookButton" hidden="true">Add Book</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="signOutButton" hidden="true">Sign Out</button>
+        </div>
     </div>
     
     <!-- Div holding book display cards. -->

@@ -3,6 +3,22 @@
     $breakpoint-phone: 550px;
 
 // IDs
+    #header  {
+        text-align: center;
+
+        &Logo {
+            margin-top: 50px !important;
+        }
+
+        > * {
+            margin: 20px auto;
+        }
+        
+        button {
+            margin-right: 10px;
+        }
+    }
+
     #books {
         display: flex;
         flex-wrap: wrap;
@@ -16,12 +32,6 @@
         #addBookCard {
             width: 200px;
         }
-    }
-
-    #pageLogo {
-        margin-top: 25px;
-        margin-bottom: 50px;
-        text-align: center;
     }
 
 // Media Queries

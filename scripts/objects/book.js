@@ -47,9 +47,9 @@ export default class Book {
             `${this.pages} Pages`);
 
         this.card.querySelector('.card-body').appendChild(
-            this.deleteButton.button);
-        this.card.querySelector('.card-body').appendChild(
             this.markButton.button);
+        this.card.querySelector('.card-body').appendChild(
+            this.deleteButton.button);
 
         this.card.querySelector('.card-footer').appendChild(
             this.getReadStatus());

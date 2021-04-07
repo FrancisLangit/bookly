@@ -1,3 +1,19 @@
+#header {
+  text-align: center;
+}
+
+#headerLogo {
+  margin-top: 50px !important;
+}
+
+#header > * {
+  margin: 20px auto;
+}
+
+#header button {
+  margin-right: 10px;
+}
+
 #books {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16,12 +32,6 @@
 
 #books #addBookCard {
   width: 200px;
-}
-
-#pageLogo {
-  margin-top: 25px;
-  margin-bottom: 50px;
-  text-align: center;
 }
 
 @media only screen and (max-width: 800px) {
