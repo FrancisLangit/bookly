@@ -2,9 +2,10 @@ import bookButton from './bookButton.js';
 
 export default class BookMarkButton extends bookButton {
     constructor(main, parentBook) {
-        /**Represents Delete button on Book cards that removes respective 
-         * parent's from user's library.*/
+        /**Represents mark button on Book cards that toggles read status 
+         * displayed.*/
         super(main, parentBook);
+        this.button.innerHTML = 'Read';
         this.setUp();
     }
 
@@ -28,13 +29,11 @@ export default class BookMarkButton extends bookButton {
         /**Sets the style of the button based on its parent book's read 
          * property.*/
         if (this.parentBook.read) {
-            this.button.classList.add('btn-secondary');
-            this.button.classList.remove('btn-outline-secondary');
-            this.button.innerHTML = 'Mark As Unread';
+            this.button.classList.add('btn-success');
+            this.button.classList.remove('btn-outline-success');
         } else {
-            this.button.classList.add('btn-outline-secondary');
-            this.button.classList.remove('btn-secondary');
-            this.button.innerHTML = 'Mark As Read';
+            this.button.classList.add('btn-outline-success');
+            this.button.classList.remove('btn-success');
         }
     }
 

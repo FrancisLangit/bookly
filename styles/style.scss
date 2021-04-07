@@ -1,20 +1,65 @@
-#books {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 15px 0;
-    
-    .card{
-        margin: 15px 20px;
-        width: 25rem;
-    }
+// Variables
+    $breakpoint-tablet: 800px;
+    $breakpoint-phone: 550px;
 
-    #book {
-        &Cover {
-            background-color: #f7f7f7;
-            height: 30vh;
-            object-fit: contain;
-            width: 100%;
+// IDs
+    #header  {
+        text-align: center;
+
+        &Logo {
+            margin-top: 50px !important;
+        }
+
+        > * {
+            margin: 20px auto;
         }
     }
-}
+
+    #books {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 15px 0;
+
+        .card{
+            margin: 15px 10px;
+        }
+    }
+
+    #divider {
+        margin: 35px auto 25px auto;
+        width: 75%;
+    }
+
+    #emptyLibraryText {
+        margin: 0 auto;
+        max-width: 65%;
+        text-align: center;
+        
+        &Header {
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        &Subheader {
+            color: grey;
+            font-size: 1em;
+        }
+    }
+
+// Media Queries
+    @media only screen and (max-width: $breakpoint-tablet) {
+        #books {
+            .card {
+                width: 500px !important; 
+            }
+        }
+    }
+
+    @media only screen and (max-width: $breakpoint-phone) {
+        #books {
+            .card {
+                width: 300px !important;
+            }
+        }
+    }
