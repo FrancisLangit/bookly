@@ -7,6 +7,7 @@ class Main {
     /**Holds logic of the website's JavaScript together.*/
     constructor() {
         this.auth = firebase.auth();
+        this.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
         this.addBookModal = new AddBookModal(this);
         this.headerInterface = new HeaderInterface(this);
