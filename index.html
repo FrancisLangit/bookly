@@ -61,7 +61,7 @@
             <button type="button" class="btn btn-outline-dark btn-sm me-2" id="addBookButton">
                 Add Book
             </button>
-            <button type="button" class="btn btn-danger btn-sm me-2" id="signOutButton">Sign Out</button>
+            <button type="button" class="btn btn-danger btn-sm me-2" data-bs-toggle="modal" data-bs-target="#signOutModal">Sign Out</button>
         </div>
     </div>
 
@@ -113,6 +113,25 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addBookModalCancelButton">Cancel</button>
                     <button type="submit" class="btn btn-primary" id="addBookModalSaveButton">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign out modal. -->
+    <div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="signOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signOutModalLabel">Signing Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to sign out of Bookly?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="signOutButton">Sign Out</button>
                 </div>
             </div>
         </div>

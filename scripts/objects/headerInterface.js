@@ -7,7 +7,7 @@ export default class HeaderInterface {
         this.headerSignedOut = document.getElementById('headerSignedOut');
         this.headerSignedIn = document.getElementById('headerSignedIn');
 
-        this.authStateDisplay = document.getElementById('authStateDisplay'); 
+        this.authStateDisplay = document.getElementById('authStateDisplay');
 
         this.signInButton = document.getElementById('signInButton');
         this.signOutButton = document.getElementById('signOutButton');
@@ -22,7 +22,7 @@ export default class HeaderInterface {
         });
     }
 
-    setUpSignOutButton() {
+    setUpSignOutModal() {
         /**Adds event listener to signOutButton. Makes it sign out user when
          * clicked. */
         this.signOutButton.addEventListener('click', () => {
@@ -49,8 +49,10 @@ export default class HeaderInterface {
     }
 
     setUp() {
+        /**Adds event listeners to buttons and configures display based on 
+         * onAuthStateChanged.*/
         this.setUpSignInButton();
-        this.setUpSignOutButton();
+        this.setUpSignOutModal();
         this.setUpAuthChange();
     }
 }
