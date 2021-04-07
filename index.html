@@ -67,19 +67,31 @@
 
     <hr id="divider" />
 
+    <!-- Special text if user has no books in library. -->
+    <div id="emptyLibraryText" hidden='true'>
+        <div id="emptyLibraryTextHeader">
+            <h2>Your library is empty!</h2>
+        </div>
+        <div id="emptyLibraryTextSubheader">
+            <p class="text-muted">Click on the "Add Book" button above to save a new book.</p>
+        </div>
+    </div>
+
     <!-- Div holding book display cards. -->
     <div id="books"></div>
 
-    <!-- Special text is user has no books in library. -->
-    <div id="emptyLibraryText" hidden='true'>
-        <div id="emptyLibraryTextHeader">
-            Your library is empty!
+    <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
+    <template id="bookCard">
+        <div class="card" id="">
+            <div class="card-body">
+                <h5 class="card-title" id="bookTitle"></h5>
+                <p class="card-text" id="bookAuthor"></p>
+                <p><small class="text-muted" id="bookPages"></small></p>
+            </div>
+            <div class="card-footer"></div>
         </div>
-        <div id="emptyLibraryTextSubheader">
-            Click on the "Add Book" button above to save a new book.
-        </div>
-    </div>
-    
+    </template>
+
     <!-- Modal where user fills out form to add new book to library. -->
     <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -136,18 +148,6 @@
             </div>
         </div>
     </div>
-  
-    <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
-    <template id="bookCard">
-        <div class="card" id="">
-            <div class="card-body">
-                <h5 class="card-title" id="bookTitle"></h5>
-                <p class="card-text" id="bookAuthor"></p>
-                <p><small class="text-muted" id="bookPages"></small></p>
-            </div>
-            <div class="card-footer"></div>
-        </div>
-    </template>
 </body>
 
 </html>

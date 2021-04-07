@@ -1,50 +1,31 @@
+body {
+  padding-top: 75px;
+  padding-bottom: 200px;
+}
+
 #header {
   text-align: center;
 }
 
-#headerLogo {
-  margin-top: 50px !important;
-}
-
 #header > * {
-  margin: 20px auto;
-}
-
-#books {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 15px 0;
-}
-
-#books .card {
-  margin: 15px 10px;
+  margin: 25px auto;
 }
 
 #divider {
-  margin: 35px auto 25px auto;
-  width: 75%;
+  margin: 50px auto;
+  width: 300px;
 }
 
 #emptyLibraryText {
   margin: 0 auto;
-  max-width: 65%;
   text-align: center;
+  width: 50%;
 }
 
-#emptyLibraryTextHeader {
-  font-size: 2em;
-  font-weight: 600;
-}
-
-#emptyLibraryTextSubheader {
-  color: grey;
-  font-size: 1em;
+#books .card {
+  float: none;
+  margin: 0px auto 25px auto;
+  width: 500px !important;
 }
 
 @media only screen and (max-width: 800px) {
