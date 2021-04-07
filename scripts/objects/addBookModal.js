@@ -101,7 +101,7 @@ export default class AddBookModal {
     setUpAddBookCard() {
         /**Adds event listener to #addBookCardBody div. When clicked, it 
          * opens the modal.*/
-        const addBookCardBody = document.querySelector('#addBookCardBody');
+        const addBookCardBody = document.querySelector('#addBookButton');
         addBookCardBody.addEventListener('click', () => {
             this.modal.show();
         });
