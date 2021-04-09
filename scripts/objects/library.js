@@ -1,12 +1,27 @@
 export default class Library {
     /**Represents a user's library. Holds and displays user's Book objects.*/
     constructor(main) {
+        this.main = main;
         this.auth = main.auth;
         this.books = [];
     }
 
+    addBookToLocalStorage(book) {
+        /**Saves a newly added book to the user's local storage.*/
+        const bookJsonString = JSON.stringify({
+            'title': book.title,
+            'author': book.author,
+            'pages': book.pages,
+            'read': book.read,
+            'id': book.id,
+        });
+        this.main.localLibrary.push(bookJsonString);
+        this.main.saveLocalStorage();
+    }
+
     addBook(book) {
         /**Adds a book to the user's library.*/
+        this.addBookToLocalStorage(book);
         this.books.push(book);
         this.changeDisplayIfEmpty();
     }
