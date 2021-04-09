@@ -6,8 +6,8 @@ body {
 #header  {
     text-align: center;
 
-    > * {
-        margin: 25px auto;
+    &Logo {
+        margin-bottom: 25px;
     }
 }
 
@@ -16,13 +16,13 @@ body {
     width: 300px;
 }
 
-#signedOutText, #emptyLibraryText {
+#emptyLibraryText {
     margin: 0 auto;
     text-align: center;
     width: 50%;
 }
 
-#libraryBooks {
+#libraryCards {
     .card{
         float: none; 
         margin: 0px auto 25px auto;

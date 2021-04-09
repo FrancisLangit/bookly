@@ -1,5 +1,5 @@
 import BookDeleteButton from './bookDeleteButton.js';
-import BookMarkButton from './bookMarkButton.js';
+import BookReadButton from './bookReadButton.js';
 
 export default class Book {
     /**Represents a book in the user's library. Properties hold data related
@@ -15,7 +15,7 @@ export default class Book {
         
         this.card = this.createBookCard();
         this.deleteButton = new BookDeleteButton(this.main, this);
-        this.markButton = new BookMarkButton(this.main, this);
+        this.readButton = new BookReadButton(this.main, this);
     }
 
     createBookCard() {
@@ -47,7 +47,7 @@ export default class Book {
             `${this.pages} Pages`);
 
         this.card.querySelector('.card-body').appendChild(
-            this.markButton.button);
+            this.readButton.button);
         this.card.querySelector('.card-body').appendChild(
             this.deleteButton.button);
 
@@ -57,10 +57,12 @@ export default class Book {
 
     display() {
         /**Creates container div with id set to Book object's id. Then fills
-         * such up with a Bootstrap card containing data related to object.*/
+         * such up with a Bootstrap card containing data related to object and
+         * appends such to the library section of the document.*/
         const bookCardContainer = document.createElement('div');
         bookCardContainer.id = this.id;
-        document.querySelector('#libraryBooks').appendChild(bookCardContainer);
+        document.querySelector('#libraryCards').appendChild(
+            bookCardContainer);
         this.fillBookCard();
         bookCardContainer.appendChild(this.card)
     }

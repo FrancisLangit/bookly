@@ -1,23 +1,17 @@
 import AddBookModal from './objects/addBookModal.js';
 import Book from './objects/book.js';
-import HeaderInterface from './objects/headerInterface.js';
 import Library from './objects/library.js';
 
 class Main {
     /**Holds logic of the website's JavaScript together.*/
     constructor() {
-        this.auth = firebase.auth();
-        this.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-
         this.addBookModal = new AddBookModal(this);
-        this.headerInterface = new HeaderInterface(this);
         this.library = new Library(this);
     }
 
     setUp() {
         /**Sets up the user interface.*/
         this.addBookModal.setUp();
-        this.headerInterface.setUp();
         this.library.display();
     }
 }

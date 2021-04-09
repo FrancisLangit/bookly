@@ -30,23 +30,9 @@ export default class Library {
         }
     }
 
-    changeDisplayIfUserSignedin() {
-        const libraryDisplay = document.querySelector('#library');
-        const signedOutText = document.querySelector('#signedOutText');
-        this.auth.onAuthStateChanged(user => {
-            if (user) {
-                libraryDisplay.hidden = false;
-                signedOutText.hidden = true;
-            } else {
-                libraryDisplay.hidden = true;
-                signedOutText.hidden = false;
-            }
-        });
-    }
-
     display() {
         /**Displays all books in the user's library.*/
-        this.changeDisplayIfUserSignedin();
+        // this.changeDisplayIfUserSignedin();
         this.changeDisplayIfEmpty();
         for (let i = 0; i < this.books.length; i++) {
             this.books[i].display();
