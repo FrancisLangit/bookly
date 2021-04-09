@@ -11,7 +11,7 @@ class Main {
 
         this.addBookModal = new AddBookModal(this);
         this.headerInterface = new HeaderInterface(this);
-        this.library = new Library;
+        this.library = new Library(this);
     }
 
     setUp() {

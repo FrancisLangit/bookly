@@ -67,18 +67,31 @@
 
     <hr id="divider" />
 
-    <!-- Special text if user has no books in library. -->
-    <div id="emptyLibraryText" hidden='true'>
-        <div id="emptyLibraryTextHeader">
-            <h2>Your library is empty!</h2>
+    <!-- Appears if user is not signed in. -->
+    <div id="signedOutText" hidden='true'>
+        <div id="signedOutTextHeader">
+            <h2>You are signed out.</h2>
         </div>
-        <div id="emptyLibraryTextSubheader">
-            <p class="text-muted">Click on the "Add Book" button above to save a new book.</p>
+        <div id="signedOutTextSubheader">
+            <p class="text-muted">Click the "Sign In" button above to sign in.</p>
         </div>
     </div>
 
-    <!-- Div holding book display cards. -->
-    <div id="books"></div>
+    <!-- Library section. Appears only is user is signed in. -->
+    <div id="library" hidden='true'>
+        <!-- Appears if user has no books in library. -->
+        <div id="emptyLibraryText" hidden='true'>
+            <div id="emptyLibraryTextHeader">
+                <h2>Your library is empty!</h2>
+            </div>
+            <div id="emptyLibraryTextSubheader">
+                <p class="text-muted">Click the "Add Book" button above to save a new book.</p>
+            </div>
+        </div>
+
+        <!-- Div holding book display cards. Hidden if user is not signed in.-->
+        <div id="libraryBooks"></div>
+    </div>
 
     <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
     <template id="bookCard">

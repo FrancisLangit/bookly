@@ -27,7 +27,7 @@ export default class HeaderInterface {
          * clicked. */
         this.signOutButton.addEventListener('click', () => {
             this.auth.signOut();
-        })
+        });
     }
 
     setUpAuthChange() {

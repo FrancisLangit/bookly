@@ -60,7 +60,7 @@ export default class Book {
          * such up with a Bootstrap card containing data related to object.*/
         const bookCardContainer = document.createElement('div');
         bookCardContainer.id = this.id;
-        document.querySelector('#books').appendChild(bookCardContainer);
+        document.querySelector('#libraryBooks').appendChild(bookCardContainer);
         this.fillBookCard();
         bookCardContainer.appendChild(this.card)
     }

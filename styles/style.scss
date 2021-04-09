@@ -16,13 +16,13 @@ body {
     width: 300px;
 }
 
-#emptyLibraryText {
+#signedOutText, #emptyLibraryText {
     margin: 0 auto;
     text-align: center;
     width: 50%;
 }
 
-#books {
+#libraryBooks {
     .card{
         float: none; 
         margin: 0px auto 25px auto;

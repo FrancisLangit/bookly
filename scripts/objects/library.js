@@ -1,17 +1,8 @@
 export default class Library {
     /**Represents a user's library. Holds and displays user's Book objects.*/
-    constructor() {
+    constructor(main) {
+        this.auth = main.auth;
         this.books = [];
-    }
-
-    changeDisplayIfEmpty() {
-        /**Displays #emptyLibraryText div if user has no books in library.*/
-        const emptyLibraryText = document.querySelector('#emptyLibraryText');
-        if (this.books.length <= 0) {
-            emptyLibraryText.hidden = false;
-        } else {
-            emptyLibraryText.hidden = true;
-        }
     }
 
     addBook(book) {
@@ -29,11 +20,36 @@ export default class Library {
         this.changeDisplayIfEmpty();
     }
 
+    changeDisplayIfEmpty() {
+        /**Displays #emptyLibraryText div if user has no books in library.*/
+        const emptyLibraryText = document.querySelector('#emptyLibraryText');
+        if (this.books.length <= 0) {
+            emptyLibraryText.hidden = false;
+        } else {
+            emptyLibraryText.hidden = true;
+        }
+    }
+
+    changeDisplayIfUserSignedin() {
+        const libraryDisplay = document.querySelector('#library');
+        const signedOutText = document.querySelector('#signedOutText');
+        this.auth.onAuthStateChanged(user => {
+            if (user) {
+                libraryDisplay.hidden = false;
+                signedOutText.hidden = true;
+            } else {
+                libraryDisplay.hidden = true;
+                signedOutText.hidden = false;
+            }
+        });
+    }
+
     display() {
         /**Displays all books in the user's library.*/
+        this.changeDisplayIfUserSignedin();
+        this.changeDisplayIfEmpty();
         for (let i = 0; i < this.books.length; i++) {
             this.books[i].display();
         }
-        this.changeDisplayIfEmpty();
     }
 }
