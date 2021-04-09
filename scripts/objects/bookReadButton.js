@@ -1,8 +1,8 @@
 import bookButton from './bookButton.js';
 
-export default class BookMarkButton extends bookButton {
+export default class BookReadButton extends bookButton {
     constructor(main, parentBook) {
-        /**Represents mark button on Book cards that toggles read status 
+        /**Represents read button on Book cards that toggles read status 
          * displayed.*/
         super(main, parentBook);
         this.button.innerHTML = 'Read';
@@ -38,7 +38,7 @@ export default class BookMarkButton extends bookButton {
     }
 
     setUp() {
-        /**Adds click event listener to mark button. Makes it toggle the read
+        /**Adds click event listener to read button. Makes it toggle the read
          * status of the book object and its card.*/
         this.setStyle();
         this.button.addEventListener('click', () => {

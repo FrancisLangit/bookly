@@ -14,32 +14,6 @@
     <script src="scripts/main.js" type="module" defer></script>
     <script src="scripts/bootstrap.bundle.min.js" async></script>
     
-    <!-- Firebase -->
-    <!-- Core SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script> 
-    <!-- Analytics SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
-    <!-- Authentication SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
-    <!-- Cloud Firestore SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
-
-    <script>
-        // Firebase Configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDPGDdCMinfESGHpjcfWappSL7TUJvfLao",
-            authDomain: "bookly-ce045.firebaseapp.com",
-            projectId: "bookly-ce045",
-            storageBucket: "bookly-ce045.appspot.com",
-            messagingSenderId: "57925089846",
-            appId: "1:57925089846:web:291b6798e27c49a1563697",
-            measurementId: "G-WFSYPHQBDX"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
-
     <title>Bookly</title>
 </head>
 
@@ -50,36 +24,41 @@
             <img src="data/logo.svg" alt="" width="100" height="100" class="d-inline-block align-text-top">
             <h1 class='display-4'>Bookly</h1>
         </div>
-
-        <h5 class="text-muted" id="authStateDisplay">Signed out.</h1> 
-        
-        <div id="headerSignedOut">
-            <button type="button" class="btn btn-outline-dark btn-sm me-2" id="signInButton">Sign In</button>
-        </div>
-        
-        <div id="headerSignedIn" hidden="true">
-            <button type="button" class="btn btn-outline-dark btn-sm me-2" id="addBookButton">
-                Add Book
-            </button>
-            <button type="button" class="btn btn-danger btn-sm me-2" data-bs-toggle="modal" data-bs-target="#signOutModal">Sign Out</button>
-        </div>
+        <button type="button" class="btn btn-outline-dark btn-lg" id="addBookButton">
+            Add Book
+        </button>
     </div>
 
     <hr id="divider" />
 
-    <!-- Div holding book display cards. -->
-    <div id="books"></div>
+    <!-- Library section.-->
+    <div id="library">
+        <!-- Appears if user has no books in library. -->
+        <div id="emptyLibraryText" hidden='true'>
+            <div id="emptyLibraryTextHeader">
+                <h2>Your library is empty!</h2>
+            </div>
+            <div id="emptyLibraryTextSubheader">
+                <p class="text-muted">Click the "Add Book" button above to save a new book.</p>
+            </div>
+        </div>
 
-    <!-- Special text is user has no books in library. -->
-    <div id="emptyLibraryText" hidden='true'>
-        <div id="emptyLibraryTextHeader">
-            Your library is empty!
-        </div>
-        <div id="emptyLibraryTextSubheader">
-            Click on the "Add Book" button above to save a new book.
-        </div>
+        <!-- Div holding book display cards. Hidden if user is not signed in.-->
+        <div id="libraryCards"></div>
     </div>
-    
+
+    <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
+    <template id="bookCard">
+        <div class="card" id="">
+            <div class="card-body">
+                <h5 class="card-title" id="bookTitle"></h5>
+                <p class="card-text" id="bookAuthor"></p>
+                <p><small class="text-muted" id="bookPages"></small></p>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+    </template>
+
     <!-- Modal where user fills out form to add new book to library. -->
     <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -117,37 +96,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Sign out modal. -->
-    <div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="signOutModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signOutModalLabel">Signing Out</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to sign out of Bookly?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="signOutButton">Sign Out</button>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-    <!-- Template Bootstrap card. Used by Book objects to display themselves. -->
-    <template id="bookCard">
-        <div class="card" id="">
-            <div class="card-body">
-                <h5 class="card-title" id="bookTitle"></h5>
-                <p class="card-text" id="bookAuthor"></p>
-                <p><small class="text-muted" id="bookPages"></small></p>
-            </div>
-            <div class="card-footer"></div>
-        </div>
-    </template>
 </body>
 
 </html>

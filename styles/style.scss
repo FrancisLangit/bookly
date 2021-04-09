@@ -1,65 +1,33 @@
-// Variables
-    $breakpoint-tablet: 800px;
-    $breakpoint-phone: 550px;
+body {
+    padding-top: 75px;
+    padding-bottom: 200px;
+}
 
-// IDs
-    #header  {
-        text-align: center;
+#header  {
+    text-align: center;
 
-        &Logo {
-            margin-top: 50px !important;
-        }
-
-        > * {
-            margin: 20px auto;
-        }
+    &Logo {
+        margin-bottom: 25px;
     }
+}
 
-    #books {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 15px 0;
+#divider {
+    margin: 50px auto;
+    width: 300px;
+}
 
-        .card{
-            margin: 15px 10px;
-        }
+#emptyLibraryText {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+#libraryCards {
+    .card{
+        float: none; 
+        margin: 0px auto 25px auto;
+        width: 500px !important; 
     }
+}
 
-    #divider {
-        margin: 35px auto 25px auto;
-        width: 75%;
-    }
-
-    #emptyLibraryText {
-        margin: 0 auto;
-        max-width: 65%;
-        text-align: center;
-        
-        &Header {
-            font-size: 2em;
-            font-weight: 600;
-        }
-
-        &Subheader {
-            color: grey;
-            font-size: 1em;
-        }
-    }
-
-// Media Queries
-    @media only screen and (max-width: $breakpoint-tablet) {
-        #books {
-            .card {
-                width: 500px !important; 
-            }
-        }
-    }
-
-    @media only screen and (max-width: $breakpoint-phone) {
-        #books {
-            .card {
-                width: 300px !important;
-            }
-        }
-    }
+@import 'mediaQueries';
