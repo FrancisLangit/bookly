@@ -7,12 +7,24 @@ class Main {
     constructor() {
         this.addBookModal = new AddBookModal(this);
         this.library = new Library(this);
+        this.localLibrary = this.getLocalStorage();
+    }
+
+    getLocalStorage() {
+        /**Returns user's booklyLibrary array from their local storage. 
+         * Makes one if not present.*/
+        if (!localStorage.getItem('booklyLibrary')) {
+            localStorage.setItem('booklyLibrary', JSON.stringify([]));
+        }
+        return JSON.parse(localStorage.getItem('booklyLibrary'));
     }
 
     setUp() {
         /**Sets up the user interface.*/
         this.addBookModal.setUp();
         this.library.display();
+
+        console.log(localStorage);
     }
 }
 
