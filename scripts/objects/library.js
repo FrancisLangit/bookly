@@ -1,8 +1,10 @@
+import Book from './book.js';
+
 export default class Library {
     /**Represents a user's library. Holds and displays user's Book objects.*/
     constructor(main) {
         this.main = main;
-        this.books = [];
+        this.books = this.getBooksFromLocalStorage();
     }
 
     changeDisplayIfEmpty() {
@@ -55,6 +57,20 @@ export default class Library {
             return book.id !== bookToDelete.id;
         });
         this.changeDisplayIfEmpty();
+    }
+
+    getBooksFromLocalStorage() {
+        /**Returns array of all books saved as JSON strings in user's locally 
+         * stored booklyLibrary array converted into Book objects.*/
+        let books = [];
+        const localLibrary = this.main.getLocalStorage();
+        for (let i = 0; i < localLibrary.length; i++) {
+            let book = JSON.parse(localLibrary[i]);
+            book = new Book(this.main, book.title, book.author, book.pages,
+                book.read, book.id);
+            books.push(book);
+        }
+        return books;
     }
 
     display() {
