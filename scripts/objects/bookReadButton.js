@@ -16,6 +16,29 @@ export default class BookReadButton extends bookButton {
         return parentBookContainer.querySelector('.card-footer');
     }
 
+    getlocalParentBookIndex() {
+        /**Returns the index of the button's parent book in the user's 
+         * locally stored booklyLibrary array.*/
+        return this.main.localLibrary.findIndex((book) => {
+                return JSON.parse(book).id === this.parentBook.id;
+            }
+        );
+    }
+
+    toggleParentBookStatusInLocalStorage() {
+        /**Toggles the read status of the button's parent book in the user's 
+         * locally stored booklyLibrary array.*/
+        let localParentBookIndex = this.getlocalParentBookIndex();
+        this.main.localLibrary[localParentBookIndex] = JSON.stringify({
+            'title': this.parentBook.title,
+            'author': this.parentBook.author,
+            'pages': this.parentBook.pages,
+            'read': !this.parentBook.read,
+            'id': this.parentBook.id,
+        });
+        this.main.saveLocalStorage();
+    }
+
     toggleParentBookStatus() {
         /**Toggles the read status of the button's parentBook object and HTML
          * within its respective card's footer.*/
@@ -42,6 +65,7 @@ export default class BookReadButton extends bookButton {
          * status of the book object and its card.*/
         this.setStyle();
         this.button.addEventListener('click', () => {
+            this.toggleParentBookStatusInLocalStorage();
             this.toggleParentBookStatus();
             this.setStyle();
         });

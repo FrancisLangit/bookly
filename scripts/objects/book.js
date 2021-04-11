@@ -5,17 +5,27 @@ export default class Book {
     /**Represents a book in the user's library. Properties hold data related
      * to such as well as objects related to its card's interface. To be 
      * stored in a Library object's books property array.*/
-    constructor(main, title, author, pages, read) {
+    constructor(main, title, author, pages, read, id) {
         this.main = main;
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.read = read;
-        this.id = Math.random().toString(36).substr(2, 9);
+        this.id = this.getId(id);
         
         this.card = this.createBookCard();
         this.deleteButton = new BookDeleteButton(this.main, this);
         this.readButton = new BookReadButton(this.main, this);
+    }
+
+    getId(id) {
+        /**If id argument !== null, returns id. Otherwise, generates a random 
+         * string that will serve as the object's id property.*/
+        if (id) {
+            return id;
+        } else {
+            return Math.random().toString(36).substr(2, 9);
+        }
     }
 
     createBookCard() {
