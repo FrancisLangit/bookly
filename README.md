@@ -17,7 +17,7 @@ To add a book to your library, click on the "Add Book" button in order to open u
 
 Bookly saves user data using the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)'s `localStorage` mechanism. Should you decide to close the application, you should be met with the books you've saved in your library upon opening the website at a later date. Such data is locally saved and is private to whichever computer it belongs to, not being accessible on any other local machine.
 
-![GIF demonstrating usage of application](/home/francislangit/Desktop/bookly/readme_usage_gif.gif)
+![GIF demonstrating usage of application](readme_usage_gif.gif)
 
 ## Contributing
 
