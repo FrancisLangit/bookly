@@ -21,15 +21,15 @@
     <!-- Header interface. -->
     <div id="header">        
         <div id="headerLogo">
-            <img src="data/logo.svg" alt="" width="100" height="100" class="d-inline-block align-text-top">
-            <h1 class='display-4'>Bookly</h1>
+            <img src="data/logo.svg" alt="" width="75" height="75" class="d-inline-block align-text-top">
+            <h1 class='display-5'>Bookly</h1>
         </div>
-        <button type="button" class="btn btn-outline-dark btn-lg" id="addBookButton">
+        <button type="button" class="btn btn-outline-dark" id="addBookButton">
             Add Book
         </button>
     </div>
 
-    <hr id="divider" />
+    <hr class="divider" />
 
     <!-- Library section.-->
     <div id="library">
@@ -45,6 +45,38 @@
 
         <!-- Div holding book display cards. Hidden if user is not signed in.-->
         <div id="libraryCards"></div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Footer section. -->
+    <div class="text-center" id="footer">
+        <h4>What is this thing?</h4>
+        <p class="text-muted">
+            Bookly is light-weight book tracking web application built on HTML, CSS, and vanilla 
+            JavaScript, with a heavy utilization of the
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" class='text-muted' target="_blank">
+                Web Storage API
+            </a>. 
+            It was created in 
+            <a 
+                href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library" 
+                class='text-muted' target="_blank">
+                    partial completion
+            </a> 
+            of 
+            <a href="https://www.theodinproject.com/paths/full-stack-javascript" class='text-muted' target="_blank">
+                The Odin Project's Full Stack JavaScript Path curriculum.
+            </a>
+        </p>
+        <div class="mt-5">
+            <h5>MIT License</h5>
+            <p class='text-muted'>Copyright © 2021 Francis Langit </p>
+        </div>
+
+        <a href="https://github.com/FrancisLangit/bookly" class="btn btn-outline-dark btn-sm">
+            Visit GitHub Repository
+        </a>
     </div>
 
     <!-- Template Bootstrap card. Used by Book objects to display themselves. -->

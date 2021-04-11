@@ -3,6 +3,17 @@ body {
   padding-bottom: 200px;
 }
 
+#emptyLibraryText {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+
+#footer {
+  margin: 0 auto;
+  width: 450px;
+}
+
 #header {
   text-align: center;
 }
@@ -11,21 +22,15 @@ body {
   margin-bottom: 25px;
 }
 
-#divider {
-  margin: 50px auto;
-  width: 300px;
-}
-
-#emptyLibraryText {
-  margin: 0 auto;
-  text-align: center;
-  width: 50%;
-}
-
 #libraryCards .card {
   float: none;
   margin: 0px auto 25px auto;
   width: 500px !important;
+}
+
+.divider {
+  margin: 50px auto;
+  width: 300px;
 }
 
 @media only screen and (max-width: 800px) {
