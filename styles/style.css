@@ -29,13 +29,13 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
-  #books .card {
+  #libraryCards .card {
     width: 500px !important;
   }
 }
 
 @media only screen and (max-width: 550px) {
-  #books .card {
+  #libraryCards .card {
     width: 300px !important;
   }
 }

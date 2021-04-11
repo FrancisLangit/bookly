@@ -2,7 +2,7 @@ $breakpoint-tablet: 800px;
 $breakpoint-phone: 550px;
 
 @media only screen and (max-width: $breakpoint-tablet) {
-    #books {
+    #libraryCards {
         .card {
             width: 500px !important; 
         }
@@ -10,7 +10,7 @@ $breakpoint-phone: 550px;
 }
 
 @media only screen and (max-width: $breakpoint-phone) {
-    #books {
+    #libraryCards {
         .card {
             width: 300px !important;
         }
