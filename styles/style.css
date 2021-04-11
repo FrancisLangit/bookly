@@ -30,16 +30,22 @@ body {
 
 .divider {
   margin: 50px auto;
-  width: 300px;
+  width: 35vw;
 }
 
 @media only screen and (max-width: 800px) {
+  #footer {
+    width: 350px;
+  }
   #libraryCards .card {
     width: 500px !important;
   }
 }
 
 @media only screen and (max-width: 550px) {
+  #footer {
+    width: 250px;
+  }
   #libraryCards .card {
     width: 300px !important;
   }
