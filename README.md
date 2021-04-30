@@ -21,7 +21,7 @@ Bookly saves user data using the [Web Storage API](https://developer.mozilla.org
 
 ## Contributing
 
-Feel free to submit an issue should a bug be using the application. One is also welcome to make a pull request should they seek to make a major change or introduce a new feature.
+Feel free to submit an issue should a bug be found using the application. One is also welcome to make a pull request should they seek to make a major change or introduce a new feature.
 
 ## License
 
